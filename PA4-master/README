@@ -1,0 +1,54 @@
+Name: Ting Fung Lam
+USC NetID: tingfunl
+CS 455 PA4
+Fall 2019
+
+----------------------------------------------
+CERTIFY IT'S YOUR WORK
+
+"I certify that the work submitted for this assignment does not
+violate USC's student conduct code.  In particular, the work is my
+own, not a collaboration, and does not involve code created by other
+people, except for the the resources explicitly mentioned in the CS 455
+Course Syllabus.  And I did not share my solution or parts of it with
+other students in the course."
+
+Initial below to "sign" the above statement:
+
+TFL
+----------------------------------------------
+ACKNOWLEDGE ANY OUTSIDE SOURCES
+
+List here any code you submitted for this assignment that was written
+with significant help of a course staff member, or code used from the
+textbook.  Be specific about what methods or algorithms are involved,
+and what sections of the textbook are involved (if applicable): [you do
+not need to list any of the code that we wrote for the assignment,
+i.e., the contents of the starter files for the assignment]
+
+
+
+----------------------------------------------
+KNOWN BUGS or LIMITATIONS:
+
+
+
+----------------------------------------------
+DESCRIPTION OF YOUR CLASS DESIGN AND ALGORITHMS AND DATA STRUCTURES USED:
+The approach is to first read the dictionary file. For each word I get its canonical form by sorting the letters,
+then add it to the map with the key equals to the sorted form and the values equals the word itself. Each value contains
+one or more words if the sorted forms are the same. Then I obtain user input and create new Rack object. The constructor
+of it runs the given allSubsets method to output the arraylist of all subsets of user input and store the list into that
+object. Finally the ScoreTable object stores the final output results as an object array, with each element as a WordScore object
+as an inner class of ScoreTable. The inner class implements Comparable interface so I can use the Java sort method.
+
+
+----------------------------------------------
+ANY OTHER NOTES FOR THE GRADER:
+
+
+
+
+
+
+
