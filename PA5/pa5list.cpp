@@ -25,9 +25,22 @@ using namespace std;
 
 
 int main() {
-
-
-
+   const string s = "Number";
+   //Node* list = new Node(s, 3);
+   Node* list = NULL;
+   Node* head = list;
+   add(head, s, 4);
+   insertFront(head, s, 2);
+   insertFront(head, s, 1);
+   add(head, s, 5);
+   list = head;
+   cout << list->key << list->value << endl;
+   list = list->next;
+   cout << list->key << list->value << endl;
+   list = list->next;
+   cout << list->key << list->value << endl;
+   list = list->next;
+   cout << list->key << list->value << endl;
 
    return 0;
 }

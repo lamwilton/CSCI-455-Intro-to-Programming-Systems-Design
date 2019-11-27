@@ -37,9 +37,9 @@ typedef Node * ListType;
 //that operate on a list here (i.e., each includes a parameter of type
 //ListType or ListType&).  No function definitions go in this file.
 
+void add(Node * & list, const std::string &theKey, int theValue);
 
-
-
+void insertFront(Node * & list, const std::string &theKey, int theValue);
 
 
 
