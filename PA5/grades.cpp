@@ -70,10 +70,11 @@ int main(int argc, char * argv[]) {
    cout << "Number of entry: " << grades->numEntries() << endl;
    
    cout << "Removing Mary: " << grades->remove("Mary") << endl;
-   cout << "Removing Ben: " << grades->remove("Ben") << endl;
-   cout << "Removing Peter: " << grades->remove("Peter") << endl;
+   //cout << "Removing Ben: " << grades->remove("Ben") << endl;
+   //cout << "Removing Peter: " << grades->remove("Peter") << endl;
+   cout << "Number of entry: " << grades->numEntries() << endl;
    grades->printAll();
-   
+   grades->hashStats(cout);
    
    return 0;
 }

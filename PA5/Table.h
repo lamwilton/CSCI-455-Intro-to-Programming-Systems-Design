@@ -94,7 +94,9 @@ class Table {
    }
 
    // add private data and headers for private methods here
-   
+   int nonEmptyBuckets() const;
+   int longestChain() const;
+      
    unsigned int hashSize;      // size of the hash table
    // (used in hashCode method above)
    // Instance variable definition

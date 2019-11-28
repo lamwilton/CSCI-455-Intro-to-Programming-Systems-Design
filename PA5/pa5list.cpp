@@ -29,10 +29,15 @@ int main() {
    const string s = "Number";
    Node* list = NULL;
    Node* head = list;
+   /*
    add(head, "dog", 4);
-   //insertFront(head, "boy", 2);
-   //insertFront(head, "apple", 1);
-   //add(head, "egg", 5);
+   insertFront(head, "boy", 2);
+   insertFront(head, "apple", 1);
+   add(head, "egg", 5);
+   */
+   add(head, "John", 29);
+   add(head, "Mary", 49);
+   add(head, "Ben", 39);
    
    const string e = "apple";
    ListType search = find(head, e);
@@ -49,9 +54,9 @@ int main() {
    cout << endl;
    
    cout << "Deleting" << endl;
-   bool del = listRemove(head, "dog");
+   bool del = listRemove(head, "Mary");
    cout << "Deleted? " << del << endl;
    listPrintAll(head);
-   cout << head << endl;
+   
    return 0;
 }

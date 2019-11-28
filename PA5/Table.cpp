@@ -51,12 +51,7 @@ int * Table::lookup(const string &key) {
 
 bool Table::remove(const string &key) {
    int hash = hashCode(key);
-   ListType result = find(this->table[hash], key);   
-   bool del = listRemove(result, key);
-   // After delete, if list in that bucket is empty, remove the list
-   if (result == NULL) {
-      this->table[hash] = NULL;
-   }
+   bool del = listRemove(this->table[hash], key);
    return del;
 }
 
@@ -93,8 +88,35 @@ void Table::printAll() const {
 }
 
 void Table::hashStats(ostream &out) const {
-  
+   out << "number of buckets: " << hashSize << endl;
+   out << "number of entries: " << numEntries() << endl;
+   out << "number of non-empty buckets: " << nonEmptyBuckets() << endl;
+   out << "longest chain: " << longestChain() << endl;
 }
 
 
 // add definitions for your private methods here
+
+// Number of non-empty buckets
+int Table::nonEmptyBuckets() const {
+   int num = 0;
+   for (int i = 0; i < hashSize; i++) {
+      if (this->table[i] != NULL) {
+         num++;
+      }
+   }
+   return num;
+}
+
+// Find longest chain
+int Table::longestChain() const {
+   int max = 0;
+   for (int i = 0; i < hashSize; i++) {
+      int num = numElements(this->table[i]);
+      if (num > max) {
+         max = num;
+      }
+   }
+   return max;
+}
+
