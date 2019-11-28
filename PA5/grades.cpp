@@ -1,5 +1,5 @@
-// Name:
-// USC NetID:
+// Name: Ting Fung Lam
+// USC NetID: tingfunl
 // CSCI 455 PA5
 // Fall 2019
 
@@ -51,30 +51,74 @@ int main(int argc, char * argv[]) {
 
    // add more code here
    // Reminder: use -> when calling Table methods, since grades is type Table*
-   
-   grades->insert("John", 29);
-   grades->insert("Mary", 49);
-   grades->insert("Ben", 39);
-   grades->insert("Ben1", 23);
-   grades->insert("Ben2", 24);
-   grades->insert("Ben3", 25);
-   grades->insert("Ben4", 26);
-   cout << "Inserting dupe: " << grades->insert("Ben", 60) << endl;
-   
-   grades->printAll();
-   
-   int * result = grades->lookup("Ben");
-   if (result != NULL) {
-      cout << *result << endl;
+   while (true) {
+      string cmd = "";
+      cin >> cmd;
+      if (cmd == "insert") {
+         string name = "";
+         int score = 0;
+         cin >> name;
+         cin >> score;
+         if (grades->lookup(name)) {
+            cout << "Name already present" << endl;
+         }
+         else {
+            grades->insert(name, score);
+         }
+      }
+      else if (cmd == "change") {
+         string name = "";
+         int score = 0;
+         cin >> name;
+         cin >> score;
+         bool del = grades->remove(name);
+         if (!del) {
+            cout << "Student is not in the table" << endl;
+         }
+         else {
+            grades->insert(name, score);
+         }
+      }
+      else if (cmd == "lookup") {
+         string name = "";
+         cin >> name;
+         int* result = grades->lookup(name);
+         if (result != NULL) {
+            cout << *result << endl;
+         }
+         else {
+            cout << "Student is not in the table" << endl;
+         }
+      }
+      else if (cmd == "remove") {
+         string name = "";
+         cin >> name;
+         bool del = grades->remove(name);
+         if (!del) {
+            cout << "Student is not in the table" << endl;
+         }
+      }
+      else if (cmd == "print") {
+         grades->printAll();
+      }
+      else if (cmd == "size") {
+         cout << grades->numEntries() << endl;
+      }
+      else if (cmd == "stats") {
+         grades->hashStats(cout);
+      }
+      else if (cmd == "help") {
+         cout << "Refer to instructions" << endl;
+      }
+
+      else if (cmd == "quit") {
+         return 0;
+      }
+      else {
+         cout << "ERROR: invalid command" << endl;
+         cout << "Refer to instructions" << endl;
+      }
    }
-   cout << "Number of entry: " << grades->numEntries() << endl;
-   
-   cout << "Removing Mary: " << grades->remove("Mary") << endl;
-   //cout << "Removing Ben: " << grades->remove("Ben") << endl;
-   //cout << "Removing Peter: " << grades->remove("Peter") << endl;
-   cout << "Number of entry: " << grades->numEntries() << endl;
-   grades->printAll();
-   grades->hashStats(cout);
    
    return 0;
 }

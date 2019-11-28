@@ -1,5 +1,5 @@
-// Name:
-// USC NetID:
+// Name: Ting Fung Lam
+// USC NetID: tingfunl
 // CS 455 PA5
 // Fall 2019
 
