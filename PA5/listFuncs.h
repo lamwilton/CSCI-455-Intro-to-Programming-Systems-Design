@@ -41,11 +41,13 @@ void add(Node * & list, const std::string &theKey, int theValue);
 
 void insertFront(Node * & list, const std::string &theKey, int theValue);
 
+ListType find(ListType &list, const std::string &theKey);
 
+void printAll(ListType &list);
 
+int numElements (ListType &list);
 
-
-
+bool listRemove(ListType &list, const std::string &theKey);
 
 
 

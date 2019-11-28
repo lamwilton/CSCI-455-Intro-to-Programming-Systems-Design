@@ -28,12 +28,14 @@ using namespace std;
 
 
 Table::Table() {
-
+   table = new ListType[HASH_SIZE]();
+   hashSize = HASH_SIZE;
 }
 
 
 Table::Table(unsigned int hSize) {
-
+   table = new ListType[hSize]();
+   hashSize = hSize;
 }
 
 
@@ -46,7 +48,22 @@ bool Table::remove(const string &key) {
 }
 
 bool Table::insert(const string &key, int value) {
-   return false;  // dummy return value for stub
+   int hash = hashCode(key);
+   // if bucket is empty
+   if (this->table[hash] == NULL) {
+      this->table[hash] = new Node(key, value);
+      cout << this->table[hash]->key << this->table[hash]->value << endl;
+      return true;
+   }
+   // if bucket isnt empty
+   else {
+      if (lookup(key) == NULL) {  // TODO lookup 
+         add(this->table[hash], key, value);
+         cout << this->table[hash]->next->key << this->table[hash]->next->value << endl;
+         return true;
+      }
+   return false;
+   }
 }
 
 int Table::numEntries() const {

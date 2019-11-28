@@ -94,11 +94,11 @@ class Table {
    }
 
    // add private data and headers for private methods here
-
+   
    unsigned int hashSize;      // size of the hash table
    // (used in hashCode method above)
-
-
+   // Instance variable definition
+   ListType* table;
 };
 
 #endif

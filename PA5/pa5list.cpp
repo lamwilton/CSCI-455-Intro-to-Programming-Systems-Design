@@ -21,26 +21,37 @@
 
 using namespace std;
 
-#include "listFuncs.h"
 
+#include "listFuncs.h"
+typedef Node * ListType;
 
 int main() {
    const string s = "Number";
-   //Node* list = new Node(s, 3);
    Node* list = NULL;
    Node* head = list;
-   add(head, s, 4);
-   insertFront(head, s, 2);
-   insertFront(head, s, 1);
-   add(head, s, 5);
-   list = head;
-   cout << list->key << list->value << endl;
-   list = list->next;
-   cout << list->key << list->value << endl;
-   list = list->next;
-   cout << list->key << list->value << endl;
-   list = list->next;
-   cout << list->key << list->value << endl;
-
+   add(head, "dog", 4);
+   insertFront(head, "boy", 2);
+   insertFront(head, "apple", 1);
+   add(head, "egg", 5);
+   
+   const string e = "apple";
+   ListType search = find(head, e);
+   if (search != NULL) {
+      cout << "Found, searching for: " << search->key << " Value: " << search->value << endl;
+   }
+   else {
+      cout << "Not found, searching for:" << e << endl;
+   }
+   printAll(head);
+   cout << endl;
+   
+   cout << "Number of elements: " << numElements(head) << endl;
+   cout << endl;
+   
+   cout << "Deleting" << endl;
+   bool del = listRemove(head, "fish");
+   cout << "Deleted? " << del << endl;
+   printAll(head);
+   cout << endl;
    return 0;
 }

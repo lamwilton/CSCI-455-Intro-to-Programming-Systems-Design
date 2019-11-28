@@ -51,7 +51,8 @@ int main(int argc, char * argv[]) {
 
    // add more code here
    // Reminder: use -> when calling Table methods, since grades is type Table*
-
-
+   const string s = "What";
+   grades->insert(s, 29);
+   grades->insert(s, 35);
    return 0;
 }
