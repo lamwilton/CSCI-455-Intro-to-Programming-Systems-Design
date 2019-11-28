@@ -51,8 +51,29 @@ int main(int argc, char * argv[]) {
 
    // add more code here
    // Reminder: use -> when calling Table methods, since grades is type Table*
-   const string s = "What";
-   grades->insert(s, 29);
-   grades->insert(s, 35);
+   
+   grades->insert("John", 29);
+   grades->insert("Mary", 49);
+   grades->insert("Ben", 39);
+   grades->insert("Ben1", 23);
+   grades->insert("Ben2", 24);
+   grades->insert("Ben3", 25);
+   grades->insert("Ben4", 26);
+   cout << "Inserting dupe: " << grades->insert("Ben", 60) << endl;
+   
+   grades->printAll();
+   
+   int * result = grades->lookup("Ben");
+   if (result != NULL) {
+      cout << *result << endl;
+   }
+   cout << "Number of entry: " << grades->numEntries() << endl;
+   
+   cout << "Removing Mary: " << grades->remove("Mary") << endl;
+   cout << "Removing Ben: " << grades->remove("Ben") << endl;
+   cout << "Removing Peter: " << grades->remove("Peter") << endl;
+   grades->printAll();
+   
+   
    return 0;
 }

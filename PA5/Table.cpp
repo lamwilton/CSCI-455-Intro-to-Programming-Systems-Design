@@ -40,11 +40,24 @@ Table::Table(unsigned int hSize) {
 
 
 int * Table::lookup(const string &key) {
-   return NULL;   // dummy return value for stub
+   int hash = hashCode(key);
+   ListType result = find(this->table[hash], key);
+   // Return NULL if not found
+   if (result == NULL) {
+      return NULL;
+   }
+   return &result->value; // returns the address of that int
 }
 
 bool Table::remove(const string &key) {
-   return false;  // dummy return value for stub
+   int hash = hashCode(key);
+   ListType result = find(this->table[hash], key);   
+   bool del = listRemove(result, key);
+   // After delete, if list in that bucket is empty, remove the list
+   if (result == NULL) {
+      this->table[hash] = NULL;
+   }
+   return del;
 }
 
 bool Table::insert(const string &key, int value) {
@@ -52,14 +65,12 @@ bool Table::insert(const string &key, int value) {
    // if bucket is empty
    if (this->table[hash] == NULL) {
       this->table[hash] = new Node(key, value);
-      cout << this->table[hash]->key << this->table[hash]->value << endl;
       return true;
    }
    // if bucket isnt empty
    else {
-      if (lookup(key) == NULL) {  // TODO lookup 
+      if (lookup(key) == NULL) {  // Add only if I cannot find the key in LL
          add(this->table[hash], key, value);
-         cout << this->table[hash]->next->key << this->table[hash]->next->value << endl;
          return true;
       }
    return false;
@@ -67,12 +78,18 @@ bool Table::insert(const string &key, int value) {
 }
 
 int Table::numEntries() const {
-   return 0;      // dummy return value for stub
+   int num = 0;
+   for (int i = 0; i < hashSize; i++) {
+      num += numElements(this->table[i]);
+   }
+   return num;
 }
 
 
 void Table::printAll() const {
-
+   for (int i = 0; i < hashSize; i++) {
+      listPrintAll(this->table[i]);
+   }
 }
 
 void Table::hashStats(ostream &out) const {

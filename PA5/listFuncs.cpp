@@ -70,13 +70,13 @@ ListType find(ListType &list, const string &theKey) {
 }
 
 // Print all elements
-void printAll(ListType &list) {
+void listPrintAll(ListType &list) {
    if (list == NULL) {
       return;
    }
    ListType temp = list;
    while (temp != NULL) {
-      cout << "Key: " << temp->key << " Value: " << temp->value << endl;
+      cout << temp->key << " " << temp->value << endl;
       temp = temp->next;
    }
 }
@@ -101,7 +101,7 @@ bool listRemove(ListType &list, const string &theKey) {
    ListType temp = list;
    // If the first one is the one to delete
    if (temp->key == theKey) {
-      list = list->next; // Update head ptr, Could be NULL if only one element
+      list = list->next; // Update head ptr
       delete temp;
       return true;
    }

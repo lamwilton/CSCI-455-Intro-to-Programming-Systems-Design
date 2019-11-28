@@ -30,9 +30,9 @@ int main() {
    Node* list = NULL;
    Node* head = list;
    add(head, "dog", 4);
-   insertFront(head, "boy", 2);
-   insertFront(head, "apple", 1);
-   add(head, "egg", 5);
+   //insertFront(head, "boy", 2);
+   //insertFront(head, "apple", 1);
+   //add(head, "egg", 5);
    
    const string e = "apple";
    ListType search = find(head, e);
@@ -42,16 +42,16 @@ int main() {
    else {
       cout << "Not found, searching for:" << e << endl;
    }
-   printAll(head);
+   listPrintAll(head);
    cout << endl;
    
    cout << "Number of elements: " << numElements(head) << endl;
    cout << endl;
    
    cout << "Deleting" << endl;
-   bool del = listRemove(head, "fish");
+   bool del = listRemove(head, "dog");
    cout << "Deleted? " << del << endl;
-   printAll(head);
-   cout << endl;
+   listPrintAll(head);
+   cout << head << endl;
    return 0;
 }

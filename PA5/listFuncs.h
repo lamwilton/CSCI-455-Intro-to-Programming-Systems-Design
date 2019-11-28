@@ -43,7 +43,7 @@ void insertFront(Node * & list, const std::string &theKey, int theValue);
 
 ListType find(ListType &list, const std::string &theKey);
 
-void printAll(ListType &list);
+void listPrintAll(ListType &list);
 
 int numElements (ListType &list);
 
