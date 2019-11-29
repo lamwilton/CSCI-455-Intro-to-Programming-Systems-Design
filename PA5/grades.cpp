@@ -52,6 +52,7 @@ int main(int argc, char * argv[]) {
    // add more code here
    // Reminder: use -> when calling Table methods, since grades is type Table*
    while (true) {
+      cout << "cmd>";
       string cmd = "";
       cin >> cmd;
       if (cmd == "insert") {
@@ -108,7 +109,8 @@ int main(int argc, char * argv[]) {
          grades->hashStats(cout);
       }
       else if (cmd == "help") {
-         cout << "Refer to instructions" << endl;
+         cout << "insert=Insert name; change=Change score; lookup=Lookup name; remove= Remove student; print=Print all names;"
+            << "size=Print number of entries; stats=Print stats of hash table; help=Command summary; quit=Exit program" << endl;
       }
 
       else if (cmd == "quit") {
@@ -116,7 +118,8 @@ int main(int argc, char * argv[]) {
       }
       else {
          cout << "ERROR: invalid command" << endl;
-         cout << "Refer to instructions" << endl;
+         cout << "insert=Insert name; change=Change score; lookup=Lookup name; remove= Remove student; print=Print all names;" 
+            << "size=Print number of entries; stats=Print stats of hash table; help=Command summary; quit=Exit program" << endl;
       }
    }
    
